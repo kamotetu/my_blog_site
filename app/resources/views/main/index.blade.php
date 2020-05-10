@@ -4,8 +4,16 @@
     | ホーム
 @endsection
 
-@section('main_image')
-    <div class="main_image">
-        <img src="{{asset('/img/main_image.png')}}" alt="{{config('const.app_name')}}">
+@section('content_css')
+    {{ 'css/main/index.css' }}
+@endsection
+
+@section('contents')
+    <div class="main_index">
+        <div class="main_index_home">
+            @include('main.info')
+            @include('main.article')
+        </div>
     </div>
 @endsection
+

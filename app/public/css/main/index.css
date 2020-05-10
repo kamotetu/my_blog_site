@@ -1,0 +1,10 @@
+.main_index {
+    height: 300vh;
+}
+
+.main_index_home {
+    height: 90vh;
+    background-color: red;
+    opacity: 0.5;
+    overflow:hidden;
+}

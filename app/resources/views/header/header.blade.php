@@ -1,6 +1,6 @@
-@extends('layouts.app')
-
-@section('header')
-    <div class="content">コンテンツ</div>
-@endsection
-
+<div class="header_contents">
+    <div class="header_logo">
+        かもてつブログ
+    </div>
+    
+</div>

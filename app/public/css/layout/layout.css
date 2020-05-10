@@ -1,0 +1,26 @@
+#app{
+    background-image: url('/public/img/back_image3.jpg');
+    background-size: cover;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    background-attachment: fixed;
+    min-height: 100vh;
+    opacity: 0.8;
+}
+
+.header_container {
+    background-color: yellow;
+    opacity: 0.5;
+    height: 10vh;
+    width: 100%;
+}
+
+.app_container{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.home_container{
+    overflow: hidden;
+}
