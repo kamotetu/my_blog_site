@@ -9,9 +9,12 @@
     <div class="header_container">
         @include('header.header')
     </div>
+
     <div class="app_container">
         @yield('contents')
+        
     </div>
+
     <div class="right_container">
         @include('layouts.right_menu')
     </div>

@@ -1,0 +1,52 @@
+.header_container {
+    background-color: yellow;
+    opacity: 0.5;
+    height: 10vh;
+    width: 100%;
+    top: 0;
+    position: fixed; 
+    overflow: hidden;
+}
+
+.header_contents {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.header_logo {
+    height: 100%;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.header_logo_img {
+    max-height: 100%;
+    width: auto;
+}
+
+.header_main_area {
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.header_nav_area {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.header_nav_area_content {
+    margin-left: 10px;
+}
+
+.header_search_input {
+    border-radius: 5px;
+    width: 200px;
+}
+
+.header_nav_area_content {
+    border: ridge ;
+}

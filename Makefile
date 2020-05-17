@@ -1,5 +1,5 @@
 up:
-	HOST_UID=$(shell id -u) docker-compose up -d --build
+	HOST_UID=$(shell id -u) docker-compose up -d
 down:
 	docker-compose down
 ssh:
