@@ -9,7 +9,10 @@
 @endsection
 
 @section('contents')
-    <div class="main_index">
+    <div class="main_index_container">
+        <div class=main_index_content>
+            
+        </div>
     </div>
 @endsection
 

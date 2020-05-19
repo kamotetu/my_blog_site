@@ -1,4 +1,4 @@
-.main_index {
+.main_index_container {
     height: 300vh;
 }
 
@@ -7,5 +7,13 @@
     background-color: red;
     opacity: 0.5;
     overflow:hidden;
+    margin-top: 10vh;
+}
+
+.main_index_content {
+    height: 90vh;
+    width: auto;
+    background-color: red;
+    opacity: 0.5;
     margin-top: 10vh;
 }

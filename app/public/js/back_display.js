@@ -1,11 +1,13 @@
-// $(function(){
-//     $(window).scroll(function(){
-//         $('.main_index_back_home').each(function(){
-//             var off = $('.main_index_back_home').offset();
-//             console.log(off.top);
-//             if(off.top > 1183){
-//                 $(this).addClass('effect-scroll');
-//             }
-//         });
-//     });
-// });
+var startPos = 0,winScrollTop = 0;
+$(window).on('scroll',function(){
+    winScrollTop = $(this).scrollTop();
+    console.log(winScrollTop);
+    if (winScrollTop >= startPos && winScrollTop > "413") {
+        $('.back_logo_image_home').addClass('hide');
+    } else {
+        if(winScrollTop < "413"){
+            $('.back_logo_image_home').removeClass('hide');
+        }
+    }
+    startPos = winScrollTop;
+});

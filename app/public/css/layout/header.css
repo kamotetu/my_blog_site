@@ -1,11 +1,11 @@
 .header_container {
-    background-color: yellow;
-    opacity: 0.5;
+    background-color: white;
     height: 10vh;
     width: 100%;
     top: 0;
     position: fixed; 
     overflow: hidden;
+    border-bottom: solid 2px gray;
 }
 
 .header_contents {
@@ -49,4 +49,9 @@
 
 .header_nav_area_content {
     border: ridge ;
+}
+
+.header_nav_area_blog {
+    text-align: center;
+    margin: 0 auto;
 }
