@@ -16,4 +16,22 @@
     background-color: red;
     opacity: 0.5;
     margin-top: 10vh;
+    padding-top: 50px;
+}
+
+.main_index_content_title_area {
+    height: 100px;
+    width: 100%;
+    background-color: blue;
+    opacity: 0.5;
+    color: black;
+}
+
+.main_index_content_title {
+    padding: 20px;
+    background-color: yellow;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
 }
