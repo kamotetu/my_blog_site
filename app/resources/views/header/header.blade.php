@@ -5,14 +5,18 @@
     
     <div class="header_main_area">
         <div class="header_nav_area">
-
-            <input type="text" placeholder="検索" name="header_search_input" class="header_search_input">
-
+            <form action="">
+                <input type="text" placeholder="検索" name="header_search_input" class="header_search_input">
+                <button type="submit" class="header_search_button">検索</button>
+            </form>
             <div class="header_nav_area_content">
                 <div class="header_nav_area_blog">
                     ブログ
                 </div>
             </div>
         </div>
+    </div>
+    <div class="header_sub_title_area">
+        <div class="header_sub_title">HOME</div>
     </div>
 </div>

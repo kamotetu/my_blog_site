@@ -29,6 +29,10 @@ Route::get('/', function (){
     return view('main.index');
 });
 
+Route::get('/index', 'IndexController@index');
+
+Route::get('/article/index', 'ArticleController@index');
+
 
 Auth::routes();
 

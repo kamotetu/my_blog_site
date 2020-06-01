@@ -1,4 +1,5 @@
 @import url("../layout/header.css");
+@import url("../layout/right_menu.css");
 
 
 #app{
@@ -10,28 +11,32 @@
     opacity: 0.8;
 }
 
-.back_logo_image {
-    padding-top: 300px;
-    padding-left: 200px;
-    position: fixed;
+.content {
+    display: flex;
 }
 
-.back_logo_image_home {
-    width: 150px;
-    height: auto;
-    transition: .5s;
+.header_container {
+    z-index: 1;  
 }
+.app_container{
+    width: 60%;
+    margin-left: 100px;
+}
+
+
 
 .hide {
     transform: translateX(100%);
     opacity: 0;
 }
 
-.app_container{
-    width: 60%;
-    margin-left: 100px;
-}
-
 .home_container{
     overflow: hidden;
+}
+
+.right_container {
+    width: 30%;
+    margin: 10vh 5% 0 5%;
+    background-color: red;
+    opacity: 0.5;
 }

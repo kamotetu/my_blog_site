@@ -11,9 +11,6 @@
     </div>
 
     <div class="app_container">
-        <div class="back_logo_image">
-            <img src="{{ asset('img/back_home.png') }}" alt="かもてつ日記" class="back_logo_image_home">
-        </div>
         @yield('contents')
     </div>
 

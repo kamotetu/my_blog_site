@@ -3,10 +3,10 @@ $(window).on('scroll',function(){
     winScrollTop = $(this).scrollTop();
 
     if (winScrollTop >= startPos && winScrollTop > "413") {
-        $('.back_logo_image_home').addClass('hide');
+        $('.header_sub_title').addClass('hide');
     } else {
         if(winScrollTop < "413"){
-            $('.back_logo_image_home').removeClass('hide');
+            $('.header_sub_title').removeClass('hide');
         }
     }
     startPos = winScrollTop;
