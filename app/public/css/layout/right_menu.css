@@ -1,0 +1,7 @@
+.right_contents {
+    width: 100%;
+    min-height: 40vh;
+    background-color: yellow;
+    opacity: 0.5;
+    margin-top: 50px;
+}
