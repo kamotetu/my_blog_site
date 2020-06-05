@@ -13,6 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/back_display.js') }}"></script>
+    <script src="@yield('content_js')"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

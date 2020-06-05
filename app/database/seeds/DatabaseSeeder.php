@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
+        $tags = ['php', 'ruby'];
+        foreach($tags as $tag) App\Models\Tag::create(['name' => $tag]);
     }
 }

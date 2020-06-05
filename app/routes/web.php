@@ -19,19 +19,18 @@ use Illuminate\Support\Facades\Route;
 
 
 // Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-//login
-//register
+// //login
+// //register
 Route::get('/', function (){
     return view('main.index');
 });
 
 Route::get('/index', 'IndexController@index');
 
-Route::get('/article/index', 'ArticleController@index');
+Route::get('/article/index', 'ArticleController@index')->name('article.index');
+
+Route::post('/article/store', 'ArticleController@store')->name('article.store');
+
 
 
 Auth::routes();
