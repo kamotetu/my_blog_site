@@ -10882,3 +10882,7 @@ a.text-dark:focus {
   }
 }
 
+#input_article_submit {
+  background-color: blue;
+}
+

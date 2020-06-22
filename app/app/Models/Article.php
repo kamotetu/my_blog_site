@@ -12,14 +12,19 @@ class Article extends Model
         'id',
     ];
 
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class);
-    }
 
     public function user()
     {
         return $this->belongsTo('App\Models\User');
     }
 
+    public function tags()
+    {
+        return $this->belongsToMany('App\Models\Tag')->withTimestamps();
+    }
+
+    public function genres()
+    {
+        return $this->belongsToMany('App\Models\Genre')->withTimestamps();
+    }
 }

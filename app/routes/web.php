@@ -31,8 +31,12 @@ Route::get('/article/index', 'ArticleController@index')->name('article.index');
 
 Route::post('/article/store', 'ArticleController@store')->name('article.store');
 
+Route::get('/article/list', 'ArticleController@list')->name('article.list');
+
+Route::get('/article/show/{id}', 'ArticleController@show')->name('article.show');
+
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');

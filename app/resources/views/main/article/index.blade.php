@@ -9,18 +9,30 @@
 @endsection
 
 @section('content')
-    <h1>投稿する</h1>
+<div class="article_index_container">
+    
+    <h1>@if(isset($article)) 編集する @else 投稿する @endif</h1>
     <p>タイトル</p>
     <form action="{{route('article.store')}}"method="post">
         @csrf
-        <input type="text" name="title">
+        <input type="text" name="title" value="{{ $article->title ?? '' }}">
 
         <p>タグ</p>
-        <input type="text" name="tag">
+        <input type="text" name="tag" value="{{ $tags_string ?? '' }}">
+
+        <p>ジャンル</p>
+        <input type="checkbox" name="genre" value="1">プログラミング
+        <input type="checkbox" name="genre" value="2">趣味
 
         <p>記事</p>
-        <textarea name="article" id="input_article_textarea" cols="30" rows="3"></textarea>
-        <button type=submit>投稿する</button>
+        <textarea name="article" id="input_article_textarea" cols="30" rows="3">{{ $article->article ?? '' }}</textarea>
+        <button type=submit id="input_article_submit">投稿する</button>
     </form>
 
+    {{-- <div id="app">
+        <sample-component></sample-component>
+    </div> --}}
+
+
+</div>
 @endsection
