@@ -21,8 +21,8 @@
         <input type="text" name="tag" value="{{ $tags_string ?? '' }}">
 
         <p>ジャンル</p>
-        <input type="checkbox" name="genre" value="1">プログラミング
-        <input type="checkbox" name="genre" value="2">趣味
+        <input type="radio" name="genre" value="1" checked="checked">プログラミング
+        <input type="radio" name="genre" value="2">趣味
 
         <p>記事</p>
         <textarea name="article" id="input_article_textarea" cols="30" rows="3">{{ $article->article ?? '' }}</textarea>

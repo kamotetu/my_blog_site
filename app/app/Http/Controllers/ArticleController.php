@@ -53,7 +53,7 @@ class ArticleController extends Controller
             $errors['article'] = '記事が入力されていません。';
         }
 
-        if(isset($errors)){
+        if(!empty($errors)){
             return view(
                 'main.article.index',
                 [
@@ -71,33 +71,37 @@ class ArticleController extends Controller
             $Article->user_id = $request->user()->id;
             if(!empty($request->genre)){
                 $Genre = new Genre();
-                $Genre->name = $request->genre;
+                $Genre->updateOrCreate(['name' => $request->genre]);
+                $genre_value = $Genre->where('name', $request->genre)->first();
             }
             if(!empty($request->tag)){
                 $Tag = new Tag();
-                $Tag->name = $request->tag;
+                $patterns = [];
+                $patterns[0] = '/,/';
+                $patterns[1] = '/\s/';
+                $patterns[2] = '/、/';
+                $patterns[3] = '/　/';
+                $result = preg_replace($patterns, ",", $request->tag);
+                $tags = explode(",", $result);
             }
+            $Article->save();
+                foreach($tags as $tag){
+                    if(!empty($tag)){
+                        $Tag->updateOrCreate(['name' => $tag]);
+                        $tag_value = $Tag->where('name', $tag)->first();
+                        $Article->tags()->attach($tag_value->id);
+                    }
+                }
+                
+                if(!empty($genre_value)){
+                    $Article->genres()->attach($genre_value->id);
+                }
+
         }catch(Throwable $t){
             DB::rollback();
             return back()->withInput();
         }
 
-        try{
-            $Article->save();
-            if(isset($Tag)){
-                $Tag->save();
-                $tag_id = $Tag->id;
-                $Article->tags()->attach($tag_id);
-            }
-            if(isset($Genre)){
-                $Genre->save();
-                $genre_id = $Genre->id;
-                $Article->genres()->attach($genre_id);
-            }
-        }catch(QueryException $ex){
-            DB::rollback();
-            return back()->withInput();
-        }
         DB::commit();
     
         return redirect(
