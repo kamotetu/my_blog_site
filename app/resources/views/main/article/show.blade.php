@@ -8,7 +8,7 @@
     <div class="main_article se se_radius">
         <div class="main_article_container se_container">
             <div class="article_content">
-                <p>{{ $article->title }}</p>
+                <p>{{$article->title }}</p>
                 <br>
                 @foreach($article->tags as $tag)
                     {{ $tag->name }}
@@ -17,7 +17,7 @@
                 <br>
                 <br>
 
-                <p>{{ $article->article }}</p>
+                <p>{!! GitDown::parseAndCache($article->article) !!}</p>
 
                 <div class="article_show_nav">
                     <p><a href="{{ route('article.index') }}">新規作成</a></p>
