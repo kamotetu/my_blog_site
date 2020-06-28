@@ -33,7 +33,9 @@ Route::post('/article/store', 'ArticleController@store')->name('article.store');
 
 Route::get('/article/list', 'ArticleController@list')->name('article.list');
 
-Route::get('/article/show/{id}', 'ArticleController@show')->name('article.show');
+Route::get('/article/edit/{id}', 'ArticleController@edit')->name('article.edit');
+
+Route::post('/article/update', 'ArticleController@update')->name('article.update');
 
 
 

@@ -85,19 +85,19 @@ class ArticleController extends Controller
                 $tags = explode(",", $result);
             }
             $Article->save();
-                foreach($tags as $tag){
-                    if(!empty($tag)){
-                        $Tag->updateOrCreate(['name' => $tag]);
-                        $tag_value = $Tag->where('name', $tag)->first();
-                        $Article->tags()->attach($tag_value->id);
-                    }
+            foreach($tags as $tag){
+                if(!empty($tag)){
+                    $Tag->updateOrCreate(['name' => $tag]);
+                    $tag_value = $Tag->where('name', $tag)->first();
+                    $Article->tags()->attach($tag_value->id);
                 }
+            }
                 
-                if(!empty($genre_value)){
-                    $Article->genres()->attach($genre_value->id);
-                }
+            if(!empty($genre_value)){
+                $Article->genres()->attach($genre_value->id);
+            }
 
-        }catch(Throwable $t){
+        }catch(\Throwable $t){
             DB::rollback();
             return back()->withInput();
         }
@@ -106,29 +106,110 @@ class ArticleController extends Controller
     
         return redirect(
             route(
-                'article.show',
+                'article.edit',
                 [
-                    'Article_id' => $Article,
                     'id' => $Article->id,
                 ]
             )
         );
     }
 
-    
-    public function show(Request $request, $id = null)
+    public function edit(Request $request)
     {
         $Article = new Article();
-        if($request->Article_id){
-            $article = $Article->find($request->Article_id);
+        if($request->id){
+            $article = $Article->find($request->id);
+            foreach($article->tags as $tag){
+                $tags[] = $tag->name;
+            }
+            $tags_string = implode(",", $tags);
+            foreach($article->genres as $genre){
+                $genres[] = $genre->name;
+            }
+
+            return view(
+                'main.article.edit',
+                    [
+                        'article' => $article,
+                        'tags_string' => $tags_string,
+                        'genre' => $genres[0],
+                    ]
+            );
         }else{
-            $article = $Article->find($id);
+            return redirect()->back();
         }
-        return view(
-            'main.article.show',
+        
+    }
+
+    public function update(Request $request)
+    {
+        $errors = [];
+        $Article = new Article();
+        $article = $Article->find($request->id);
+        if(empty($request->title)){
+            $errors['title_error'] = 'タイトルが入力されていません。';
+        }else{
+            $article->title = $request->title;
+        }
+
+        if(empty($request->article)){
+            $errors['article_error'] = '本文が入力されていません。';
+        }else{
+            $article->article = $request->article;
+        }
+
+        DB::beginTransaction();
+
+        try{
+            $article->save();
+        }catch(QueryException $ex){
+            return view(
+                'main.article.edit',
                 [
                     'article' => $article,
+                    'tags_string' => $request->tag,
                 ]
+            );
+        }
+
+        if($request->tag){
+            $Tag = new Tag();
+            $patterns = [];
+            $patterns[0] = '/,/';
+            $patterns[1] = '/\s/';
+            $patterns[2] = '/、/';
+            $patterns[3] = '/　/';
+            $result = preg_replace($patterns, ",", $request->tag);
+            $tags = explode(",", $result);
+            $tags_array = [];
+            $article->tags()->detach();
+            foreach($tags as $tag){
+                if(!empty($tag)){
+                    $Tag->updateOrCreate(['name' => $tag]);
+                    $tag_value = $Tag->where('name', $tag)->first();
+                    $article->tags()->attach($tag_value->id);
+                    array_push($tags_array, $tag);
+                }
+            }
+            $tags_string = implode(",", $tags_array);
+        }
+        if($request->genre){
+            $Genre = new Genre();
+            $Genre->updateOrCreate(['name' => $request->genre]);
+            $genre_value = $Genre->where('name', $request->genre)->first();
+            $article->genres()->detach();
+            $article->genres()->attach($genre_value->id);
+        }
+
+        DB::commit();
+
+        return view(
+            'main.article.edit',
+            [
+                'article' => $article,
+                'tags_string' => $tags_string,
+                'genre' => $request->genre,
+            ]
         );
     }
 
