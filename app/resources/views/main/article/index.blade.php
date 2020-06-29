@@ -29,6 +29,8 @@
         <button type=submit id="input_article_submit">投稿する</button>
     </form>
 
+    <a href="{{ route('article.list') }}">投稿リスト</a>
+
     {{-- <div id="app">
         <sample-component></sample-component>
     </div> --}}

@@ -10886,3 +10886,54 @@ a.text-dark:focus {
   background-color: blue;
 }
 
+.main_index_container {
+  height: 300vh;
+}
+
+.main_index_home {
+  height: 90vh;
+  background-color: red;
+  opacity: 0.5;
+  overflow: hidden;
+  margin-top: 10vh;
+}
+
+.main_index_content {
+  height: 90vh;
+  width: auto;
+  background-color: red;
+  opacity: 0.5;
+  margin-top: 10vh;
+  padding-top: 50px;
+}
+
+.main_index_content_title_area {
+  height: 100px;
+  width: 100%;
+  background-color: blue;
+  opacity: 0.5;
+  color: black;
+}
+
+.main_index_content_title {
+  padding: 20px;
+  background-color: yellow;
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+  border: solid 1px gray;
+}
+
+.main_index_content_title ul {
+  list-style: none;
+  border-bottom: solid 1px gray;
+}
+
+.main_index_content_title ul .index_title {
+  padding: 0;
+}
+
+.main_index_content_title ul .index_article {
+  padding: 0;
+}
+

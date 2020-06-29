@@ -21,11 +21,11 @@ use Illuminate\Support\Facades\Route;
 // Auth::routes();
 // //login
 // //register
-Route::get('/', function (){
-    return view('main.index');
-});
+// Route::get('/', function (){
+//     return view('main.index');
+// });
 
-Route::get('/index', 'IndexController@index');
+Route::get('/', 'IndexController@index')->name('index');
 
 Route::get('/article/index', 'ArticleController@index')->name('article.index');
 
@@ -36,7 +36,6 @@ Route::get('/article/list', 'ArticleController@list')->name('article.list');
 Route::get('/article/edit/{id}', 'ArticleController@edit')->name('article.edit');
 
 Route::post('/article/update', 'ArticleController@update')->name('article.update');
-
 
 Auth::routes();
 

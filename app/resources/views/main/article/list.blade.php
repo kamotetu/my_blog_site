@@ -12,7 +12,8 @@
                     <ul>
                         @foreach($articles as $article)
                         <li>
-                            <a href="{{route('article.show', ['id' => $article->id])}}">{{ $article['title'] }}</a>
+                            <a href="{{route('article.edit', ['id' => $article->id])}}">{{ $article['title'] }}</a>{{ $article->updated_at }}
+                            <p>{{ mb_strimwidth($article['article'], 0, 100, "...") }}</p>
                         </li>
                         @endforeach
                     </ul>
