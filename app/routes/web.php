@@ -38,7 +38,6 @@ Route::get('/article/edit/{id}', 'ArticleController@edit')->name('article.edit')
 Route::post('/article/update', 'ArticleController@update')->name('article.update');
 
 
-
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
