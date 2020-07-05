@@ -10924,16 +10924,17 @@ a.text-dark:focus {
   border: solid 1px gray;
 }
 
-.main_index_content_title ul {
+.main_index_content_title .main_index_title {
+  margin-top: 15px;
   list-style: none;
   border-bottom: solid 1px gray;
 }
 
-.main_index_content_title ul .index_title {
+.main_index_content_title .main_index_title .index_title {
   padding: 0;
 }
 
-.main_index_content_title ul .index_article {
+.main_index_content_title .main_index_title .index_article {
   padding: 0;
 }
 

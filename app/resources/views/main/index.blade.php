@@ -14,10 +14,10 @@
             <div class="main_index_content_title_area">
                 <div class="main_index_content_title">
                     最近の記事
-                    <ul>
+                    <ul class="main_index_title">
                         @foreach($articles as $article)
                         <li>
-                            <h5 class="index_title">{{ $article->title }}</h5>
+                            <a href="{{ route('show', ['id' => $article->id]) }}"><h5 class="index_title">{{ $article->title }}</h5></a>
                             <div class="index_article">{{ $article->article }}</div>
                         </li>
                         @endforeach

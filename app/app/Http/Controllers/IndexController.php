@@ -20,4 +20,16 @@ class IndexController extends Controller
             ]    
         );
     }
+
+    public function show(Request $request)
+    {
+        $Article = new Article();
+        $article = $Article->find($request->id);
+        return view(
+            'main.show',
+            [
+                'article' => $article,
+            ]
+        );
+    }
 }
