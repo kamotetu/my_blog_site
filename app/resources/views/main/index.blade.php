@@ -15,11 +15,13 @@
                 <div class="main_index_content_title">
                     最近の記事
                     <ul class="main_index_title">
-                        @foreach($articles as $article)
-                        <li>
-                            <a href="{{ route('show', ['id' => $article->id]) }}"><h5 class="index_title">{{ $article->title }}</h5></a>
-                            <div class="index_article">{{ $article->article }}</div>
-                        </li>
+                        @foreach($recent_articles as $article)
+                        <a href="{{ route('show', ['id' => $article->id]) }}">
+                            <li>
+                                <h6 class="index_title">{{ $article->title }}</h6>
+                                <div class="index_article">{{ mb_strimwidth($article->article, 0, 50, "...") }}</div>
+                            </li>
+                        </a>
                         @endforeach
                     </ul>
                 </div>

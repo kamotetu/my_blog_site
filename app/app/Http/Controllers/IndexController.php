@@ -11,12 +11,12 @@ class IndexController extends Controller
     public function index()
     {
         $User = Auth::user();
-        $articles = $User->articles()->get();
+        $recent_articles = $User->articles()->simplePaginate(15);
         
         return view(
             'main.index',
             [
-                'articles' => $articles,
+                'recent_articles' => $recent_articles,
             ]    
         );
     }
